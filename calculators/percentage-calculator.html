@@ -8,10 +8,10 @@
     <title>Percentage Calculator - Calculate Percentages Online | MathSolverLab</title>
 
     <meta name="description"
-          content="Use our free percentage calculator to calculate percentages, percentage increase and decrease, and find what percentage one number is of another.">
+          content="Free online percentage calculator to calculate percentages, find what percentage one number is of another, and calculate percentage increase or decrease.">
 
     <meta name="keywords"
-          content="percentage calculator, percentage calculator online, calculate percentage, percentage increase calculator, percentage decrease calculator">
+          content="percentage calculator, percent calculator, percentage increase calculator, percentage decrease calculator, calculate percentage online">
 
     <meta name="robots" content="index, follow">
 
@@ -19,13 +19,20 @@
           href="https://mathsolverlab.github.io/math-solver/calculators/percentage-calculator.html">
 
     <!-- Open Graph -->
-    <meta property="og:type" content="website">
     <meta property="og:title"
           content="Percentage Calculator - MathSolverLab">
+
     <meta property="og:description"
-          content="Calculate percentages, percentage increases and decreases instantly with our free online percentage calculator.">
+          content="Calculate percentages, percentage increase, and percentage decrease quickly with our free online percentage calculator.">
+
+    <meta property="og:type"
+          content="website">
+
     <meta property="og:url"
           content="https://mathsolverlab.github.io/math-solver/calculators/percentage-calculator.html">
+
+    <!-- Master Design System -->
+    <link rel="stylesheet" href="../assets/css/style.css">
 
     <!-- Structured Data -->
     <script type="application/ld+json">
@@ -36,404 +43,901 @@
         "url": "https://mathsolverlab.github.io/math-solver/calculators/percentage-calculator.html",
         "applicationCategory": "EducationalApplication",
         "operatingSystem": "Any",
-        "description": "Free online percentage calculator for calculating percentages, percentage increases and decreases."
+        "description": "Free online percentage calculator for calculating percentages, percentage increase, and percentage decrease.",
+        "offers": {
+            "@type": "Offer",
+            "price": "0",
+            "priceCurrency": "USD"
+        }
     }
     </script>
-
-    <style>
-
-        /* =========================================
-           GLOBAL
-        ========================================= */
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family:
-                Inter,
-                -apple-system,
-                BlinkMacSystemFont,
-                "Segoe UI",
-                Roboto,
-                Arial,
-                sans-serif;
-
-            background: #f6f8fc;
-            color: #172033;
-            line-height: 1.6;
-        }
-
-        a {
-            color: inherit;
-            text-decoration: none;
-        }
-
-        button,
-        input {
-            font: inherit;
-        }
-
-        .container {
-            width: min(1180px, calc(100% - 40px));
-            margin: 0 auto;
-        }
-
-
-        /* =========================================
-           TOP HEADER
-        ========================================= */
-
-        .site-header {
-            background: rgba(255, 255, 255, 0.96);
-            border-bottom: 1px solid #e7eaf0;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(14px);
-        }
-
-        .header-inner {
-            min-height: 74px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            gap: 30px;
-        }
-
-        .brand {
-            display: flex;
-            align-items: center;
-            gap: 12px;
-        }
-
-        .brand-icon {
-            width: 42px;
-            height: 42px;
-            border-radius: 12px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-
-            background: #172554;
-            color: white;
-
-            font-size: 22px;
-            font-weight: 800;
-
-            box-shadow:
-                0 8px 20px rgba(23, 37, 84, 0.18);
-        }
-
-        .brand-text {
-            font-size: 21px;
-            font-weight: 800;
-            letter-spacing: -0.5px;
-            color: #172033;
-        }
-
-        .brand-text span {
-            color: #3156d3;
-        }
-
-        .main-nav {
-            display: flex;
-            align-items: center;
-            gap: 28px;
-        }
-
-        .main-nav a {
-            font-size: 14px;
-            font-weight: 600;
-            color: #5d6678;
-            transition: 0.2s ease;
-        }
-
-        .main-nav a:hover {
-            color: #3156d3;
-        }
-
-        .header-button {
-            padding: 10px 17px;
-            border-radius: 10px;
-            background: #3156d3;
-            color: white !important;
-
-            box-shadow:
-                0 6px 18px rgba(49, 86, 211, 0.22);
-        }
-
-        .header-button:hover {
-            background: #2446bb;
-            transform: translateY(-1px);
-        }
-
-
-        /* =========================================
-           HERO
-        ========================================= */
-
-        .hero {
-            position: relative;
-            overflow: hidden;
-
-            background:
-                radial-gradient(
-                    circle at 85% 20%,
-                    rgba(91, 120, 255, 0.16),
-                    transparent 32%
-                ),
-                radial-gradient(
-                    circle at 10% 80%,
-                    rgba(64, 185, 255, 0.10),
-                    transparent 30%
-                ),
-                #eef3ff;
-
-            padding: 88px 0 96px;
-        }
-
-        .hero::before {
-            content: "∑";
-            position: absolute;
-
-            right: 8%;
-            top: 10px;
-
-            font-size: 190px;
-            font-weight: 900;
-
-            color: rgba(49, 86, 211, 0.045);
-
-            transform: rotate(-8deg);
-            pointer-events: none;
-        }
-
-        .hero::after {
-            content: "π";
-            position: absolute;
-
-            left: 5%;
-            bottom: -45px;
-
-            font-size: 170px;
-            font-weight: 900;
-
-            color: rgba(49, 86, 211, 0.04);
-
-            pointer-events: none;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 2;
-            max-width: 820px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        .eyebrow {
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-
-            padding: 7px 13px;
-            margin-bottom: 20px;
-
-            border: 1px solid #d8e1ff;
-            border-radius: 999px;
-
-            background: rgba(255, 255, 255, 0.72);
-
-            color: #3156d3;
-
-            font-size: 13px;
-            font-weight: 700;
-
-            box-shadow:
-                0 5px 18px rgba(36, 70, 187, 0.06);
-        }
-
-        .eyebrow-dot {
-            width: 7px;
-            height: 7px;
-            border-radius: 50%;
-            background: #3156d3;
-        }
-
-        .hero h1 {
-            font-size: clamp(42px, 6vw, 68px);
-            line-height: 1.05;
-            letter-spacing: -2.8px;
-            color: #111a33;
-            margin-bottom: 22px;
-        }
-
-        .hero h1 span {
-            color: #3156d3;
-        }
-
-        .hero-description {
-            max-width: 690px;
-            margin: 0 auto;
-
-            color: #59657a;
-            font-size: 18px;
-            line-height: 1.75;
-        }
-
-        .hero-features {
-            margin-top: 32px;
-
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-        }
-
-        .hero-feature {
-            display: inline-flex;
-            align-items: center;
-            gap: 7px;
-
-            padding: 9px 14px;
-
-            border-radius: 10px;
-
-            background: rgba(255, 255, 255, 0.8);
-            border: 1px solid #dce3f3;
-
-            color: #59657a;
-
-            font-size: 13px;
-            font-weight: 600;
-        }
-
-        .hero-feature strong {
-            color: #3156d3;
-        }
-
-
-        /* =========================================
-           MAIN CONTENT FOUNDATION
-        ========================================= */
-
-        .main-content {
-            position: relative;
-            z-index: 5;
-            margin-top: -42px;
-            padding-bottom: 80px;
-        }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 32px;
-        }
-
-        .section-heading h2 {
-            font-size: 32px;
-            letter-spacing: -1px;
-            color: #172033;
-            margin-bottom: 8px;
-        }
-
-        .section-heading p {
-            color: #6b7485;
-            font-size: 15px;
-        }
-
-
-        /* =========================================
-           RESPONSIVE HEADER
-        ========================================= */
-
-        @media (max-width: 760px) {
-
-            .container {
-                width: min(100% - 24px, 1180px);
-            }
-
-            .header-inner {
-                min-height: 66px;
-            }
-
-            .main-nav {
-                display: none;
-            }
-
-            .brand-text {
-                font-size: 19px;
-            }
-
-            .hero {
-                padding: 64px 0 78px;
-            }
-
-            .hero h1 {
-                letter-spacing: -1.8px;
-            }
-
-            .hero-description {
-                font-size: 16px;
-            }
-
-            .hero::before {
-                font-size: 120px;
-                right: -10px;
-            }
-
-            .hero::after {
-                font-size: 100px;
-                left: -10px;
-            }
-
-            .main-content {
-                margin-top: -28px;
-            }
-        }
-
-    </style>
 </head>
-
 
 <body>
 
+<!-- =====================================================
+     HEADER
+     ===================================================== -->
 
-    <!-- =========================================
-         HEADER
-    ========================================= -->
+<header class="msl-header">
 
-    <header class="site-header">
+    <div class="msl-container msl-header-inner">
 
-        <div class="container header-inner">
+        <a href="../index.html" class="msl-brand" aria-label="MathSolverLab Home">
 
-            <a href="../index.html" class="brand">
+            <span class="msl-brand-icon">∑</span>
 
-                <div class="brand-icon">
-                    ∑
+            <span>MathSolverLab</span>
+
+        </a>
+
+        <nav class="msl-nav" aria-label="Main navigation">
+
+            <a href="../index.html">Home</a>
+
+            <a href="../index.html#calculators">Calculators</a>
+
+            <a href="../index.html#algebra">Algebra</a>
+
+            <a href="../index.html#calculus">Calculus</a>
+
+            <a href="../index.html#geometry">Geometry</a>
+
+        </nav>
+
+    </div>
+
+</header>
+
+
+<!-- =====================================================
+     BREADCRUMBS
+     ===================================================== -->
+
+<div class="msl-breadcrumbs">
+
+    <div class="msl-container msl-breadcrumbs-inner">
+
+        <a href="../index.html">Home</a>
+
+        <span class="msl-breadcrumb-separator">›</span>
+
+        <span>Calculators</span>
+
+        <span class="msl-breadcrumb-separator">›</span>
+
+        <span>Percentage Calculator</span>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     HERO
+     ===================================================== -->
+
+<section class="msl-hero">
+
+    <div class="msl-container msl-hero-content">
+
+        <div class="msl-eyebrow">
+            Free Online Math Tool
+        </div>
+
+        <h1>Percentage Calculator</h1>
+
+        <p>
+            Calculate percentages quickly and accurately.
+            Find percentages, percentage increase or decrease,
+            and determine what percentage one number is of another.
+        </p>
+
+        <div class="msl-feature-pills">
+
+            <span class="msl-feature-pill">
+                ✓ Free to Use
+            </span>
+
+            <span class="msl-feature-pill">
+                ✓ Instant Results
+            </span>
+
+            <span class="msl-feature-pill">
+                ✓ Mobile Friendly
+            </span>
+
+            <span class="msl-feature-pill">
+                ✓ No Data Upload
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     CALCULATORS
+     ===================================================== -->
+
+<section class="msl-calculator-section">
+
+    <div class="msl-container">
+
+        <div class="msl-page-intro">
+
+            <h2>Calculate Percentages Online</h2>
+
+            <p>
+                Choose the percentage calculation you need below.
+                Enter your numbers and get an instant result.
+            </p>
+
+        </div>
+
+
+        <div class="msl-calculator-grid">
+
+
+            <!-- =================================================
+                 CALCULATOR 1
+                 ================================================= -->
+
+            <div class="msl-card msl-calculator-card">
+
+                <div class="msl-card-top">
+
+                    <div class="msl-card-icon">
+                        %
+                    </div>
+
+                    <div class="msl-card-heading">
+
+                        <h2>What is X% of Y?</h2>
+
+                        <p>
+                            Calculate a percentage of a number.
+                        </p>
+
+                    </div>
+
                 </div>
 
-                <div class="brand-text">
-                    Math<span>SolverLab</span>
+
+                <div class="msl-form-group">
+
+                    <label class="msl-label" for="percent1">
+                        Percentage
+                    </label>
+
+                    <div class="msl-input-with-symbol">
+
+                        <input
+                            class="msl-input"
+                            type="number"
+                            id="percent1"
+                            placeholder="Example: 20"
+                            step="any"
+                        >
+
+                        <span class="msl-input-symbol">%</span>
+
+                    </div>
+
                 </div>
 
+
+                <div class="msl-form-group">
+
+                    <label class="msl-label" for="number1">
+                        Number
+                    </label>
+
+                    <input
+                        class="msl-input"
+                        type="number"
+                        id="number1"
+                        placeholder="Example: 150"
+                        step="any"
+                    >
+
+                </div>
+
+
+                <button
+                    class="msl-btn msl-btn-primary"
+                    onclick="calculatePercentageOf()"
+                >
+                    Calculate
+                </button>
+
+
+                <div
+                    id="result1"
+                    class="msl-result"
+                    aria-live="polite"
+                >
+
+                    <div class="msl-result-label">
+                        Result
+                    </div>
+
+                    <div class="msl-result-value">
+                        —
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CALCULATOR 2
+                 ================================================= -->
+
+            <div class="msl-card msl-calculator-card">
+
+                <div class="msl-card-top">
+
+                    <div class="msl-card-icon">
+                        %
+                    </div>
+
+                    <div class="msl-card-heading">
+
+                        <h2>What Percentage is X of Y?</h2>
+
+                        <p>
+                            Find what percentage one number represents.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="msl-form-group">
+
+                    <label class="msl-label" for="number2">
+                        First Number
+                    </label>
+
+                    <input
+                        class="msl-input"
+                        type="number"
+                        id="number2"
+                        placeholder="Example: 25"
+                        step="any"
+                    >
+
+                </div>
+
+
+                <div class="msl-form-group">
+
+                    <label class="msl-label" for="total2">
+                        Total Number
+                    </label>
+
+                    <input
+                        class="msl-input"
+                        type="number"
+                        id="total2"
+                        placeholder="Example: 100"
+                        step="any"
+                    >
+
+                </div>
+
+
+                <button
+                    class="msl-btn msl-btn-primary"
+                    onclick="calculateWhatPercentage()"
+                >
+                    Calculate
+                </button>
+
+
+                <div
+                    id="result2"
+                    class="msl-result"
+                    aria-live="polite"
+                >
+
+                    <div class="msl-result-label">
+                        Result
+                    </div>
+
+                    <div class="msl-result-value">
+                        —
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- =================================================
+                 CALCULATOR 3
+                 ================================================= -->
+
+            <div class="msl-card msl-calculator-card">
+
+                <div class="msl-card-top">
+
+                    <div class="msl-card-icon">
+                        ↗
+                    </div>
+
+                    <div class="msl-card-heading">
+
+                        <h2>Percentage Increase or Decrease</h2>
+
+                        <p>
+                            Calculate the percentage change between two values.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="msl-form-group">
+
+                    <label class="msl-label" for="oldValue">
+                        Original Value
+                    </label>
+
+                    <input
+                        class="msl-input"
+                        type="number"
+                        id="oldValue"
+                        placeholder="Example: 100"
+                        step="any"
+                    >
+
+                </div>
+
+
+                <div class="msl-form-group">
+
+                    <label class="msl-label" for="newValue">
+                        New Value
+                    </label>
+
+                    <input
+                        class="msl-input"
+                        type="number"
+                        id="newValue"
+                        placeholder="Example: 125"
+                        step="any"
+                    >
+
+                </div>
+
+
+                <button
+                    class="msl-btn msl-btn-primary"
+                    onclick="calculatePercentageChange()"
+                >
+                    Calculate
+                </button>
+
+
+                <div
+                    id="result3"
+                    class="msl-result"
+                    aria-live="polite"
+                >
+
+                    <div class="msl-result-label">
+                        Result
+                    </div>
+
+                    <div class="msl-result-value">
+                        —
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- PRIVACY NOTE -->
+
+        <div class="msl-notice">
+
+            <div class="msl-notice-icon">
+                🔒
+            </div>
+
+            <div>
+                <strong>Your data stays on your device.</strong>
+                This percentage calculator performs calculations
+                directly in your browser. Your numbers are not
+                uploaded to a server.
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     HOW TO USE
+     ===================================================== -->
+
+<section class="msl-content-section">
+
+    <div class="msl-container">
+
+        <div class="msl-content">
+
+            <h2>How to Use the Percentage Calculator</h2>
+
+            <p>
+                Our percentage calculator makes it easy to solve
+                common percentage problems without doing the
+                calculations manually.
+            </p>
+
+
+            <div class="msl-steps">
+
+
+                <div class="msl-step">
+
+                    <div class="msl-step-number">
+                        1
+                    </div>
+
+                    <h3>Choose a Calculation</h3>
+
+                    <p>
+                        Select the calculator that matches the
+                        percentage problem you want to solve.
+                    </p>
+
+                </div>
+
+
+                <div class="msl-step">
+
+                    <div class="msl-step-number">
+                        2
+                    </div>
+
+                    <h3>Enter Your Numbers</h3>
+
+                    <p>
+                        Enter the required values into the
+                        corresponding fields.
+                    </p>
+
+                </div>
+
+
+                <div class="msl-step">
+
+                    <div class="msl-step-number">
+                        3
+                    </div>
+
+                    <h3>Get Your Result</h3>
+
+                    <p>
+                        Click Calculate to instantly see the
+                        percentage result.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FORMULA
+     ===================================================== -->
+
+<section class="msl-content-section">
+
+    <div class="msl-container">
+
+        <div class="msl-content">
+
+            <h2>Percentage Formula</h2>
+
+            <p>
+                Percentages express a number as a fraction of 100.
+                The basic percentage formula is:
+            </p>
+
+
+            <div class="msl-formula-box">
+
+                <div class="msl-formula">
+                    Percentage = (Part ÷ Whole) × 100
+                </div>
+
+                <div class="msl-formula-note">
+                    This formula is useful for finding what percentage
+                    one value represents of another.
+                </div>
+
+            </div>
+
+
+            <h3>Finding a Percentage of a Number</h3>
+
+            <p>
+                To find X% of a number Y, divide X by 100 and
+                multiply the result by Y.
+            </p>
+
+
+            <div class="msl-formula-box">
+
+                <div class="msl-formula">
+                    X% of Y = (X ÷ 100) × Y
+                </div>
+
+            </div>
+
+
+            <h3>Percentage Change Formula</h3>
+
+            <p>
+                Percentage increase or decrease can be calculated
+                by comparing the difference between the original
+                and new values with the original value.
+            </p>
+
+
+            <div class="msl-formula-box">
+
+                <div class="msl-formula">
+                    Percentage Change =
+                    ((New − Original) ÷ Original) × 100
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     EXAMPLES
+     ===================================================== -->
+
+<section class="msl-content-section">
+
+    <div class="msl-container">
+
+        <div class="msl-content">
+
+            <h2>Percentage Calculator Examples</h2>
+
+            <p>
+                Here are a few simple examples showing how
+                percentage calculations work.
+            </p>
+
+
+            <div class="msl-example-grid">
+
+
+                <div class="msl-example">
+
+                    <strong>Example 1: 20% of 150</strong>
+
+                    <code>
+                        (20 ÷ 100) × 150 = 30
+                    </code>
+
+                </div>
+
+
+                <div class="msl-example">
+
+                    <strong>Example 2: What percentage is 25 of 100?</strong>
+
+                    <code>
+                        (25 ÷ 100) × 100 = 25%
+                    </code>
+
+                </div>
+
+
+                <div class="msl-example">
+
+                    <strong>Example 3: Increase from 100 to 125</strong>
+
+                    <code>
+                        ((125 − 100) ÷ 100) × 100 = 25%
+                    </code>
+
+                </div>
+
+
+                <div class="msl-example">
+
+                    <strong>Example 4: Decrease from 200 to 150</strong>
+
+                    <code>
+                        ((150 − 200) ÷ 200) × 100 = −25%
+                    </code>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FAQ
+     ===================================================== -->
+
+<section class="msl-content-section">
+
+    <div class="msl-container">
+
+        <div class="msl-content">
+
+            <h2>Frequently Asked Questions</h2>
+
+
+            <div class="msl-faq">
+
+
+                <div class="msl-faq-item">
+
+                    <h3 class="msl-faq-question">
+                        What is a percentage?
+                    </h3>
+
+                    <p class="msl-faq-answer">
+                        A percentage is a way of expressing a number
+                        as a fraction of 100. The percentage symbol
+                        is %.
+                    </p>
+
+                </div>
+
+
+                <div class="msl-faq-item">
+
+                    <h3 class="msl-faq-question">
+                        How do I calculate a percentage?
+                    </h3>
+
+                    <p class="msl-faq-answer">
+                        Divide the part by the whole and multiply
+                        the result by 100. For example,
+                        25 out of 100 is 25%.
+                    </p>
+
+                </div>
+
+
+                <div class="msl-faq-item">
+
+                    <h3 class="msl-faq-question">
+                        How do I calculate percentage increase?
+                    </h3>
+
+                    <p class="msl-faq-answer">
+                        Subtract the original value from the new value,
+                        divide the difference by the original value,
+                        and multiply by 100.
+                    </p>
+
+                </div>
+
+
+                <div class="msl-faq-item">
+
+                    <h3 class="msl-faq-question">
+                        Is this percentage calculator free?
+                    </h3>
+
+                    <p class="msl-faq-answer">
+                        Yes. The MathSolverLab percentage calculator
+                        is free to use online.
+                    </p>
+
+                </div>
+
+
+                <div class="msl-faq-item">
+
+                    <h3 class="msl-faq-question">
+                        Is my data uploaded to a server?
+                    </h3>
+
+                    <p class="msl-faq-answer">
+                        No. The calculations are performed directly
+                        in your browser, so the numbers you enter are
+                        not sent to a server.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     RELATED TOOLS
+     ===================================================== -->
+
+<section class="msl-related-section">
+
+    <div class="msl-container">
+
+        <div class="msl-page-intro">
+
+            <h2>Related Math Tools</h2>
+
+            <p>
+                Explore other calculators and math tools from
+                MathSolverLab.
+            </p>
+
+        </div>
+
+        <div class="msl-related-grid">
+
+            <a
+                href="fraction-calculator.html"
+                class="msl-related-card"
+            >
+                <div class="msl-related-card-icon">
+                    ½
+                </div>
+
+                <h3>Fraction Calculator</h3>
+
+                <p>
+                    Calculate and simplify fractions.
+                </p>
             </a>
 
 
-            <nav class="main-nav">
+            <a
+                href="ratio-calculator.html"
+                class="msl-related-card"
+            >
+                <div class="msl-related-card-icon">
+                    :
+                </div>
 
-                <a href="../index.html">
-                    Home
+                <h3>Ratio Calculator</h3>
+
+                <p>
+                    Solve ratios and compare quantities.
+                </p>
+            </a>
+
+
+            <a
+                href="proportion-calculator.html"
+                class="msl-related-card"
+            >
+                <div class="msl-related-card-icon">
+                    =
+                </div>
+
+                <h3>Proportion Calculator</h3>
+
+                <p>
+                    Solve proportions quickly and accurately.
+                </p>
+            </a>
+
+
+            <a
+                href="average-calculator.html"
+                class="msl-related-card"
+            >
+                <div class="msl-related-card-icon">
+                    x̄
+                </div>
+
+                <h3>Average Calculator</h3>
+
+                <p>
+                    Calculate the average or mean of numbers.
+                </p>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =====================================================
+     FOOTER
+     ===================================================== -->
+
+<footer class="msl-footer">
+
+    <div class="msl-container">
+
+        <div class="msl-footer-grid">
+
+            <div class="msl-footer-brand">
+
+                <a href="../index.html" class="msl-brand">
+
+                    <span class="msl-brand-icon">∑</span>
+
+                    <span>MathSolverLab</span>
+
                 </a>
+
+                <p class="msl-footer-description">
+                    Free online mathematics tools and calculators
+                    for students, professionals, and anyone who
+                    needs fast and accurate mathematical calculations.
+                </p>
+
+            </div>
+
+
+            <div class="msl-footer-column">
+
+                <h3>Math Tools</h3>
+
+                <a href="percentage-calculator.html">
+                    Percentage Calculator
+                </a>
+
+                <a href="fraction-calculator.html">
+                    Fraction Calculator
+                </a>
+
+                <a href="ratio-calculator.html">
+                    Ratio Calculator
+                </a>
+
+                <a href="average-calculator.html">
+                    Average Calculator
+                </a>
+
+            </div>
+
+
+            <div class="msl-footer-column">
+
+                <h3>Categories</h3>
 
                 <a href="../index.html#algebra">
                     Algebra
@@ -451,1180 +955,266 @@
                     Statistics
                 </a>
 
-                <a href="../index.html" class="header-button">
-                    All Tools
+            </div>
+
+
+            <div class="msl-footer-column">
+
+                <h3>MathSolverLab</h3>
+
+                <a href="../index.html">
+                    Home
                 </a>
 
-            </nav>
-
-        </div>
-
-    </header>
-
-
-
-    <!-- =========================================
-         HERO SECTION
-    ========================================= -->
-
-    <section class="hero">
-
-        <div class="container hero-content">
-
-            <div class="eyebrow">
-
-                <span class="eyebrow-dot"></span>
-
-                Free Online Math Tool
-
-            </div>
-
-
-            <h1>
-                Percentage
-                <span>Calculator</span>
-            </h1>
-
-
-            <p class="hero-description">
-
-                Calculate percentages quickly and accurately.
-                Find percentages, percentage increases and decreases,
-                and understand every calculation with clear formulas
-                and examples.
-
-            </p>
-
-
-            <div class="hero-features">
-
-                <div class="hero-feature">
-                    ✓ <strong>Free</strong> to use
-                </div>
-
-                <div class="hero-feature">
-                    ✓ Instant results
-                </div>
-
-                <div class="hero-feature">
-                    ✓ No registration
-                </div>
-
-                <div class="hero-feature">
-                    ✓ Mobile friendly
-                </div>
+                <a href="../index.html#calculators">
+                    All Calculators
+                </a>
 
             </div>
 
         </div>
 
-    </section>
 
+        <div class="msl-footer-bottom">
 
-
-    <!-- =========================================
-         MAIN CONTENT
-         Calculator will be added in Part 2
-    ========================================= -->
-
-    <main class="main-content">
-
-        <div class="container">
-
-            <div class="section-heading">
-
-                <h2>
-                    Calculate Percentages
-                </h2>
-
-                <p>
-                    Choose a calculation below and enter your numbers.
-                </p>
-
-            </div>
-
-
-            <!-- =========================================
-     PERCENTAGE CALCULATORS
-========================================= -->
-
-<style>
-
-    /* =========================================
-       CALCULATOR GRID
-    ========================================= */
-
-    .calculator-grid {
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 24px;
-    }
-
-    .calculator-card {
-        background: #ffffff;
-        border: 1px solid #e5e9f2;
-        border-radius: 22px;
-        padding: 30px;
-
-        box-shadow:
-            0 14px 45px rgba(31, 45, 75, 0.07);
-
-        transition:
-            transform 0.25s ease,
-            box-shadow 0.25s ease,
-            border-color 0.25s ease;
-    }
-
-    .calculator-card:hover {
-        transform: translateY(-4px);
-
-        box-shadow:
-            0 20px 55px rgba(31, 45, 75, 0.11);
-
-        border-color: #d6def5;
-    }
-
-
-    /* =========================================
-       CARD HEADER
-    ========================================= */
-
-    .calculator-card-header {
-        display: flex;
-        align-items: flex-start;
-        gap: 15px;
-        margin-bottom: 27px;
-    }
-
-    .calculator-icon {
-        width: 48px;
-        height: 48px;
-
-        flex: 0 0 48px;
-
-        display: flex;
-        align-items: center;
-        justify-content: center;
-
-        border-radius: 14px;
-
-        background: #eef2ff;
-        color: #3156d3;
-
-        font-size: 21px;
-        font-weight: 800;
-    }
-
-    .calculator-card-header h3 {
-        color: #172033;
-        font-size: 19px;
-        line-height: 1.35;
-        margin-bottom: 5px;
-    }
-
-    .calculator-card-header p {
-        color: #778196;
-        font-size: 13px;
-        line-height: 1.5;
-    }
-
-
-    /* =========================================
-       INPUT GROUP
-    ========================================= */
-
-    .input-group {
-        margin-bottom: 18px;
-    }
-
-    .input-group label {
-        display: block;
-
-        margin-bottom: 8px;
-
-        color: #374151;
-
-        font-size: 13px;
-        font-weight: 700;
-    }
-
-    .input-wrapper {
-        position: relative;
-    }
-
-    .input-wrapper input {
-        width: 100%;
-
-        height: 54px;
-
-        padding: 0 48px 0 16px;
-
-        border: 1px solid #dce2ed;
-        border-radius: 12px;
-
-        background: #fbfcfe;
-
-        color: #172033;
-
-        font-size: 16px;
-        font-weight: 600;
-
-        outline: none;
-
-        transition:
-            border-color 0.2s ease,
-            box-shadow 0.2s ease,
-            background 0.2s ease;
-    }
-
-    .input-wrapper input:hover {
-        border-color: #bfc9dd;
-    }
-
-    .input-wrapper input:focus {
-        border-color: #3156d3;
-        background: #ffffff;
-
-        box-shadow:
-            0 0 0 4px rgba(49, 86, 211, 0.10);
-    }
-
-    .input-suffix {
-        position: absolute;
-
-        right: 16px;
-        top: 50%;
-
-        transform: translateY(-50%);
-
-        color: #3156d3;
-
-        font-size: 15px;
-        font-weight: 800;
-
-        pointer-events: none;
-    }
-
-
-    /* =========================================
-       CALCULATE BUTTON
-    ========================================= */
-
-    .calculate-button {
-        width: 100%;
-
-        min-height: 52px;
-
-        border: 0;
-        border-radius: 12px;
-
-        background: #3156d3;
-        color: #ffffff;
-
-        font-size: 15px;
-        font-weight: 750;
-
-        cursor: pointer;
-
-        box-shadow:
-            0 9px 22px rgba(49, 86, 211, 0.22);
-
-        transition:
-            background 0.2s ease,
-            transform 0.2s ease,
-            box-shadow 0.2s ease;
-    }
-
-    .calculate-button:hover {
-        background: #2446bb;
-
-        transform: translateY(-2px);
-
-        box-shadow:
-            0 12px 27px rgba(49, 86, 211, 0.28);
-    }
-
-    .calculate-button:active {
-        transform: translateY(0);
-    }
-
-
-    /* =========================================
-       RESULT BOX
-    ========================================= */
-
-    .result-box {
-        display: none;
-
-        margin-top: 20px;
-
-        padding: 20px;
-
-        border-radius: 15px;
-
-        background:
-            linear-gradient(
-                135deg,
-                #f1f5ff,
-                #f8faff
-            );
-
-        border: 1px solid #dce4ff;
-
-        animation: resultAppear 0.3s ease;
-    }
-
-    .result-box.show {
-        display: block;
-    }
-
-    .result-label {
-        color: #667085;
-
-        font-size: 12px;
-        font-weight: 700;
-
-        text-transform: uppercase;
-        letter-spacing: 0.7px;
-
-        margin-bottom: 5px;
-    }
-
-    .result-value {
-        color: #203a9a;
-
-        font-size: 29px;
-        line-height: 1.2;
-
-        font-weight: 800;
-
-        word-break: break-word;
-    }
-
-    .result-explanation {
-        margin-top: 8px;
-
-        color: #667085;
-
-        font-size: 13px;
-        line-height: 1.5;
-    }
-
-
-    /* =========================================
-       FORMULA PREVIEW
-    ========================================= */
-
-    .formula-preview {
-        margin-top: 18px;
-        padding: 14px 16px;
-
-        border-radius: 11px;
-
-        background: #f8f9fc;
-        border: 1px solid #e8ebf2;
-
-        color: #687286;
-
-        font-size: 13px;
-    }
-
-    .formula-preview strong {
-        color: #344054;
-    }
-
-
-    /* =========================================
-       THIRD CARD - FULL WIDTH
-    ========================================= */
-
-    .calculator-card.full-width {
-        grid-column: 1 / -1;
-    }
-
-    .increase-decrease-grid {
-        display: grid;
-
-        grid-template-columns: repeat(2, 1fr);
-
-        gap: 18px;
-    }
-
-
-    /* =========================================
-       SWAP / OPERATOR VISUAL
-    ========================================= */
-
-    .operator-symbol {
-        display: flex;
-
-        align-items: center;
-        justify-content: center;
-
-        width: 34px;
-        height: 34px;
-
-        margin: 4px auto 12px;
-
-        border-radius: 50%;
-
-        background: #f0f3fa;
-
-        color: #3156d3;
-
-        font-size: 17px;
-        font-weight: 800;
-    }
-
-
-    /* =========================================
-       ERROR MESSAGE
-    ========================================= */
-
-    .error-message {
-        display: none;
-
-        margin-top: 12px;
-
-        padding: 11px 13px;
-
-        border-radius: 10px;
-
-        background: #fff5f5;
-
-        border: 1px solid #ffd9d9;
-
-        color: #c24141;
-
-        font-size: 13px;
-        font-weight: 600;
-    }
-
-    .error-message.show {
-        display: block;
-    }
-
-
-    /* =========================================
-       ANIMATION
-    ========================================= */
-
-    @keyframes resultAppear {
-
-        from {
-            opacity: 0;
-            transform: translateY(6px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-    }
-
-
-    /* =========================================
-       CALCULATOR RESPONSIVE
-    ========================================= */
-
-    @media (max-width: 850px) {
-
-        .calculator-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .calculator-card.full-width {
-            grid-column: auto;
-        }
-
-        .increase-decrease-grid {
-            grid-template-columns: 1fr;
-        }
-
-    }
-
-
-    @media (max-width: 520px) {
-
-        .calculator-card {
-            padding: 22px 18px;
-
-            border-radius: 18px;
-        }
-
-        .calculator-card-header h3 {
-            font-size: 17px;
-        }
-
-        .calculator-icon {
-            width: 43px;
-            height: 43px;
-
-            flex-basis: 43px;
-        }
-
-        .result-value {
-            font-size: 25px;
-        }
-
-    }
-
-</style>
-
-
-<div class="calculator-grid">
-
-
-    <!-- =========================================
-         CALCULATOR 1
-    ========================================= -->
-
-    <section class="calculator-card">
-
-        <div class="calculator-card-header">
-
-            <div class="calculator-icon">
-                %
-            </div>
-
-            <div>
-
-                <h3>
-                    What is X% of Y?
-                </h3>
-
-                <p>
-                    Find a percentage of a number.
-                </p>
-
-            </div>
+            © 2026 MathSolverLab. All rights reserved.
 
         </div>
 
+    </div>
 
-        <div class="input-group">
+</footer>
 
-            <label for="percent1">
-                Percentage
-            </label>
 
-            <div class="input-wrapper">
-
-                <input
-                    type="number"
-                    id="percent1"
-                    placeholder="Example: 25"
-                    step="any"
-                >
-
-                <span class="input-suffix">%</span>
-
-            </div>
-
-        </div>
-
-
-        <div class="operator-symbol">
-            ×
-        </div>
-
-
-        <div class="input-group">
-
-            <label for="number1">
-                Number
-            </label>
-
-            <div class="input-wrapper">
-
-                <input
-                    type="number"
-                    id="number1"
-                    placeholder="Example: 200"
-                    step="any"
-                >
-
-            </div>
-
-        </div>
-
-
-        <button
-            class="calculate-button"
-            onclick="calculatePercentageOf()"
-        >
-            Calculate Percentage
-        </button>
-
-
-        <div
-            class="error-message"
-            id="error1"
-        ></div>
-
-
-        <div
-            class="result-box"
-            id="result1"
-        >
-
-            <div class="result-label">
-                Result
-            </div>
-
-            <div
-                class="result-value"
-                id="resultValue1"
-            >
-            </div>
-
-            <div
-                class="result-explanation"
-                id="resultExplanation1"
-            >
-            </div>
-
-        </div>
-
-
-        <div class="formula-preview">
-
-            <strong>Formula:</strong>
-
-            (Percentage ÷ 100) × Number
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         CALCULATOR 2
-    ========================================= -->
-
-    <section class="calculator-card">
-
-        <div class="calculator-card-header">
-
-            <div class="calculator-icon">
-                %
-            </div>
-
-            <div>
-
-                <h3>
-                    What percentage is X of Y?
-                </h3>
-
-                <p>
-                    Find what percentage one number is of another.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="input-group">
-
-            <label for="number2">
-                Part / X
-            </label>
-
-            <div class="input-wrapper">
-
-                <input
-                    type="number"
-                    id="number2"
-                    placeholder="Example: 25"
-                    step="any"
-                >
-
-            </div>
-
-        </div>
-
-
-        <div class="operator-symbol">
-            ÷
-        </div>
-
-
-        <div class="input-group">
-
-            <label for="total2">
-                Whole / Y
-            </label>
-
-            <div class="input-wrapper">
-
-                <input
-                    type="number"
-                    id="total2"
-                    placeholder="Example: 100"
-                    step="any"
-                >
-
-            </div>
-
-        </div>
-
-
-        <button
-            class="calculate-button"
-            onclick="calculateWhatPercentage()"
-        >
-            Find Percentage
-        </button>
-
-
-        <div
-            class="error-message"
-            id="error2"
-        ></div>
-
-
-        <div
-            class="result-box"
-            id="result2"
-        >
-
-            <div class="result-label">
-                Result
-            </div>
-
-            <div
-                class="result-value"
-                id="resultValue2"
-            >
-            </div>
-
-            <div
-                class="result-explanation"
-                id="resultExplanation2"
-            >
-            </div>
-
-        </div>
-
-
-        <div class="formula-preview">
-
-            <strong>Formula:</strong>
-
-            (Part ÷ Whole) × 100
-
-        </div>
-
-    </section>
-
-
-
-    <!-- =========================================
-         CALCULATOR 3
-    ========================================= -->
-
-    <section class="calculator-card full-width">
-
-        <div class="calculator-card-header">
-
-            <div class="calculator-icon">
-                ↕
-            </div>
-
-            <div>
-
-                <h3>
-                    Percentage Increase or Decrease
-                </h3>
-
-                <p>
-                    Calculate the percentage change between an original
-                    value and a new value.
-                </p>
-
-            </div>
-
-        </div>
-
-
-        <div class="increase-decrease-grid">
-
-
-            <div class="input-group">
-
-                <label for="originalValue">
-                    Original Value
-                </label>
-
-                <div class="input-wrapper">
-
-                    <input
-                        type="number"
-                        id="originalValue"
-                        placeholder="Example: 100"
-                        step="any"
-                    >
-
-                </div>
-
-            </div>
-
-
-            <div class="input-group">
-
-                <label for="newValue">
-                    New Value
-                </label>
-
-                <div class="input-wrapper">
-
-                    <input
-                        type="number"
-                        id="newValue"
-                        placeholder="Example: 125"
-                        step="any"
-                    >
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <button
-            class="calculate-button"
-            onclick="calculatePercentageChange()"
-        >
-            Calculate Percentage Change
-        </button>
-
-
-        <div
-            class="error-message"
-            id="error3"
-        ></div>
-
-
-        <div
-            class="result-box"
-            id="result3"
-        >
-
-            <div class="result-label">
-                Percentage Change
-            </div>
-
-            <div
-                class="result-value"
-                id="resultValue3"
-            >
-            </div>
-
-            <div
-                class="result-explanation"
-                id="resultExplanation3"
-            >
-            </div>
-
-        </div>
-
-
-        <div class="formula-preview">
-
-            <strong>Formula:</strong>
-
-            ((New Value − Original Value) ÷ Original Value) × 100
-
-        </div>
-
-    </section>
-
-</div>
-
-
-<!-- =========================================
-     CALCULATOR JAVASCRIPT
-========================================= -->
+<!-- =====================================================
+     JAVASCRIPT
+     ===================================================== -->
 
 <script>
 
-    function formatNumber(number) {
+/* ---------------------------------------------------------
+   Helper Functions
+   --------------------------------------------------------- */
 
-        if (!Number.isFinite(number)) {
-            return "0";
-        }
+function formatNumber(number) {
 
-        return Number(
-            number.toFixed(10)
-        ).toLocaleString(
-            "en-US",
+    if (!Number.isFinite(number)) {
+        return "Invalid result";
+    }
+
+    return Number.isInteger(number)
+        ? number.toLocaleString()
+        : number.toLocaleString(
+            undefined,
             {
                 maximumFractionDigits: 10
             }
         );
-
-    }
-
-
-    function showError(id, message) {
-
-        const error = document.getElementById(id);
-
-        error.textContent = message;
-
-        error.classList.add("show");
-
-    }
+}
 
 
-    function hideError(id) {
+function showResult(elementId, label, value, type = "success") {
 
-        const error = document.getElementById(id);
+    const resultBox =
+        document.getElementById(elementId);
 
-        error.textContent = "";
+    resultBox.className =
+        "msl-result " + type;
 
-        error.classList.remove("show");
+    resultBox.innerHTML = `
+        <div class="msl-result-label">
+            ${label}
+        </div>
 
-    }
+        <div class="msl-result-value">
+            ${value}
+        </div>
+    `;
+}
 
 
-    function showResult(
-        boxId,
-        valueId,
-        explanationId,
-        value,
-        explanation
+/* ---------------------------------------------------------
+   Calculator 1
+   X% of Y
+   --------------------------------------------------------- */
+
+function calculatePercentageOf() {
+
+    const percentage =
+        parseFloat(
+            document.getElementById("percent1").value
+        );
+
+    const number =
+        parseFloat(
+            document.getElementById("number1").value
+        );
+
+
+    if (
+        !Number.isFinite(percentage) ||
+        !Number.isFinite(number)
     ) {
-
-        const box =
-            document.getElementById(boxId);
-
-        document.getElementById(valueId)
-            .textContent = value;
-
-        document.getElementById(explanationId)
-            .textContent = explanation;
-
-        box.classList.add("show");
-
-    }
-
-
-    /* =========================================
-       CALCULATOR 1
-    ========================================= */
-
-    function calculatePercentageOf() {
-
-        hideError("error1");
-
-        const percentage =
-            parseFloat(
-                document.getElementById("percent1").value
-            );
-
-        const number =
-            parseFloat(
-                document.getElementById("number1").value
-            );
-
-
-        if (
-            Number.isNaN(percentage) ||
-            Number.isNaN(number)
-        ) {
-
-            showError(
-                "error1",
-                "Please enter both numbers to calculate the result."
-            );
-
-            return;
-
-        }
-
-
-        const result =
-            (percentage / 100) * number;
-
 
         showResult(
             "result1",
-            "resultValue1",
-            "resultExplanation1",
-
-            formatNumber(result),
-
-            `${percentage}% of ${formatNumber(number)} equals ${formatNumber(result)}.`
+            "Error",
+            "Please enter both values.",
+            "error"
         );
 
+        return;
     }
 
 
-    /* =========================================
-       CALCULATOR 2
-    ========================================= */
-
-    function calculateWhatPercentage() {
-
-        hideError("error2");
-
-        const part =
-            parseFloat(
-                document.getElementById("number2").value
-            );
-
-        const whole =
-            parseFloat(
-                document.getElementById("total2").value
-            );
+    const result =
+        (percentage / 100) * number;
 
 
-        if (
-            Number.isNaN(part) ||
-            Number.isNaN(whole)
-        ) {
-
-            showError(
-                "error2",
-                "Please enter both numbers to calculate the percentage."
-            );
-
-            return;
-
-        }
+    showResult(
+        "result1",
+        "Result",
+        formatNumber(result)
+    );
+}
 
 
-        if (whole === 0) {
+/* ---------------------------------------------------------
+   Calculator 2
+   What percentage is X of Y?
+   --------------------------------------------------------- */
 
-            showError(
-                "error2",
-                "The whole value cannot be zero."
-            );
+function calculateWhatPercentage() {
 
-            return;
+    const number =
+        parseFloat(
+            document.getElementById("number2").value
+        );
 
-        }
+    const total =
+        parseFloat(
+            document.getElementById("total2").value
+        );
 
 
-        const result =
-            (part / whole) * 100;
-
+    if (
+        !Number.isFinite(number) ||
+        !Number.isFinite(total)
+    ) {
 
         showResult(
             "result2",
-            "resultValue2",
-            "resultExplanation2",
-
-            `${formatNumber(result)}%`,
-
-            `${formatNumber(part)} is ${formatNumber(result)}% of ${formatNumber(whole)}.`
+            "Error",
+            "Please enter both values.",
+            "error"
         );
 
+        return;
     }
 
 
-    /* =========================================
-       CALCULATOR 3
-    ========================================= */
+    if (total === 0) {
 
-    function calculatePercentageChange() {
+        showResult(
+            "result2",
+            "Error",
+            "The total cannot be zero.",
+            "error"
+        );
 
-        hideError("error3");
-
-        const original =
-            parseFloat(
-                document.getElementById("originalValue").value
-            );
-
-        const newValue =
-            parseFloat(
-                document.getElementById("newValue").value
-            );
+        return;
+    }
 
 
-        if (
-            Number.isNaN(original) ||
-            Number.isNaN(newValue)
-        ) {
-
-            showError(
-                "error3",
-                "Please enter both the original and new values."
-            );
-
-            return;
-
-        }
+    const result =
+        (number / total) * 100;
 
 
-        if (original === 0) {
-
-            showError(
-                "error3",
-                "The original value cannot be zero."
-            );
-
-            return;
-
-        }
+    showResult(
+        "result2",
+        "Result",
+        formatNumber(result) + "%"
+    );
+}
 
 
-        const change =
-            ((newValue - original) / original) * 100;
+/* ---------------------------------------------------------
+   Calculator 3
+   Percentage Increase / Decrease
+   --------------------------------------------------------- */
+
+function calculatePercentageChange() {
+
+    const oldValue =
+        parseFloat(
+            document.getElementById("oldValue").value
+        );
+
+    const newValue =
+        parseFloat(
+            document.getElementById("newValue").value
+        );
 
 
-        const absoluteChange =
-            Math.abs(change);
-
-
-        let explanation;
-
-
-        if (change > 0) {
-
-            explanation =
-                `The value increased by ${formatNumber(absoluteChange)}%.`;
-
-        }
-
-        else if (change < 0) {
-
-            explanation =
-                `The value decreased by ${formatNumber(absoluteChange)}%.`;
-
-        }
-
-        else {
-
-            explanation =
-                "There is no percentage change.";
-
-        }
-
+    if (
+        !Number.isFinite(oldValue) ||
+        !Number.isFinite(newValue)
+    ) {
 
         showResult(
             "result3",
-            "resultValue3",
-            "resultExplanation3",
-
-            `${formatNumber(change)}%`,
-
-            explanation
+            "Error",
+            "Please enter both values.",
+            "error"
         );
+
+        return;
+    }
+
+
+    if (oldValue === 0) {
+
+        showResult(
+            "result3",
+            "Error",
+            "The original value cannot be zero.",
+            "error"
+        );
+
+        return;
+    }
+
+
+    const change =
+        ((newValue - oldValue) / oldValue) * 100;
+
+
+    let label;
+
+
+    if (change > 0) {
+
+        label = "Percentage Increase";
+
+    } else if (change < 0) {
+
+        label = "Percentage Decrease";
+
+    } else {
+
+        label = "Percentage Change";
 
     }
 
+
+    showResult(
+        "result3",
+        label,
+        formatNumber(Math.abs(change)) + "%"
+    );
+}
+
 </script>
-
-
-        </div>
-
-    </main>
 
 
 </body>
