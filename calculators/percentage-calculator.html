@@ -544,7 +544,1082 @@
             </div>
 
 
-            <!-- PART 2 WILL GO HERE -->
+            <!-- =========================================
+     PERCENTAGE CALCULATORS
+========================================= -->
+
+<style>
+
+    /* =========================================
+       CALCULATOR GRID
+    ========================================= */
+
+    .calculator-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 24px;
+    }
+
+    .calculator-card {
+        background: #ffffff;
+        border: 1px solid #e5e9f2;
+        border-radius: 22px;
+        padding: 30px;
+
+        box-shadow:
+            0 14px 45px rgba(31, 45, 75, 0.07);
+
+        transition:
+            transform 0.25s ease,
+            box-shadow 0.25s ease,
+            border-color 0.25s ease;
+    }
+
+    .calculator-card:hover {
+        transform: translateY(-4px);
+
+        box-shadow:
+            0 20px 55px rgba(31, 45, 75, 0.11);
+
+        border-color: #d6def5;
+    }
+
+
+    /* =========================================
+       CARD HEADER
+    ========================================= */
+
+    .calculator-card-header {
+        display: flex;
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 27px;
+    }
+
+    .calculator-icon {
+        width: 48px;
+        height: 48px;
+
+        flex: 0 0 48px;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        border-radius: 14px;
+
+        background: #eef2ff;
+        color: #3156d3;
+
+        font-size: 21px;
+        font-weight: 800;
+    }
+
+    .calculator-card-header h3 {
+        color: #172033;
+        font-size: 19px;
+        line-height: 1.35;
+        margin-bottom: 5px;
+    }
+
+    .calculator-card-header p {
+        color: #778196;
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+
+    /* =========================================
+       INPUT GROUP
+    ========================================= */
+
+    .input-group {
+        margin-bottom: 18px;
+    }
+
+    .input-group label {
+        display: block;
+
+        margin-bottom: 8px;
+
+        color: #374151;
+
+        font-size: 13px;
+        font-weight: 700;
+    }
+
+    .input-wrapper {
+        position: relative;
+    }
+
+    .input-wrapper input {
+        width: 100%;
+
+        height: 54px;
+
+        padding: 0 48px 0 16px;
+
+        border: 1px solid #dce2ed;
+        border-radius: 12px;
+
+        background: #fbfcfe;
+
+        color: #172033;
+
+        font-size: 16px;
+        font-weight: 600;
+
+        outline: none;
+
+        transition:
+            border-color 0.2s ease,
+            box-shadow 0.2s ease,
+            background 0.2s ease;
+    }
+
+    .input-wrapper input:hover {
+        border-color: #bfc9dd;
+    }
+
+    .input-wrapper input:focus {
+        border-color: #3156d3;
+        background: #ffffff;
+
+        box-shadow:
+            0 0 0 4px rgba(49, 86, 211, 0.10);
+    }
+
+    .input-suffix {
+        position: absolute;
+
+        right: 16px;
+        top: 50%;
+
+        transform: translateY(-50%);
+
+        color: #3156d3;
+
+        font-size: 15px;
+        font-weight: 800;
+
+        pointer-events: none;
+    }
+
+
+    /* =========================================
+       CALCULATE BUTTON
+    ========================================= */
+
+    .calculate-button {
+        width: 100%;
+
+        min-height: 52px;
+
+        border: 0;
+        border-radius: 12px;
+
+        background: #3156d3;
+        color: #ffffff;
+
+        font-size: 15px;
+        font-weight: 750;
+
+        cursor: pointer;
+
+        box-shadow:
+            0 9px 22px rgba(49, 86, 211, 0.22);
+
+        transition:
+            background 0.2s ease,
+            transform 0.2s ease,
+            box-shadow 0.2s ease;
+    }
+
+    .calculate-button:hover {
+        background: #2446bb;
+
+        transform: translateY(-2px);
+
+        box-shadow:
+            0 12px 27px rgba(49, 86, 211, 0.28);
+    }
+
+    .calculate-button:active {
+        transform: translateY(0);
+    }
+
+
+    /* =========================================
+       RESULT BOX
+    ========================================= */
+
+    .result-box {
+        display: none;
+
+        margin-top: 20px;
+
+        padding: 20px;
+
+        border-radius: 15px;
+
+        background:
+            linear-gradient(
+                135deg,
+                #f1f5ff,
+                #f8faff
+            );
+
+        border: 1px solid #dce4ff;
+
+        animation: resultAppear 0.3s ease;
+    }
+
+    .result-box.show {
+        display: block;
+    }
+
+    .result-label {
+        color: #667085;
+
+        font-size: 12px;
+        font-weight: 700;
+
+        text-transform: uppercase;
+        letter-spacing: 0.7px;
+
+        margin-bottom: 5px;
+    }
+
+    .result-value {
+        color: #203a9a;
+
+        font-size: 29px;
+        line-height: 1.2;
+
+        font-weight: 800;
+
+        word-break: break-word;
+    }
+
+    .result-explanation {
+        margin-top: 8px;
+
+        color: #667085;
+
+        font-size: 13px;
+        line-height: 1.5;
+    }
+
+
+    /* =========================================
+       FORMULA PREVIEW
+    ========================================= */
+
+    .formula-preview {
+        margin-top: 18px;
+        padding: 14px 16px;
+
+        border-radius: 11px;
+
+        background: #f8f9fc;
+        border: 1px solid #e8ebf2;
+
+        color: #687286;
+
+        font-size: 13px;
+    }
+
+    .formula-preview strong {
+        color: #344054;
+    }
+
+
+    /* =========================================
+       THIRD CARD - FULL WIDTH
+    ========================================= */
+
+    .calculator-card.full-width {
+        grid-column: 1 / -1;
+    }
+
+    .increase-decrease-grid {
+        display: grid;
+
+        grid-template-columns: repeat(2, 1fr);
+
+        gap: 18px;
+    }
+
+
+    /* =========================================
+       SWAP / OPERATOR VISUAL
+    ========================================= */
+
+    .operator-symbol {
+        display: flex;
+
+        align-items: center;
+        justify-content: center;
+
+        width: 34px;
+        height: 34px;
+
+        margin: 4px auto 12px;
+
+        border-radius: 50%;
+
+        background: #f0f3fa;
+
+        color: #3156d3;
+
+        font-size: 17px;
+        font-weight: 800;
+    }
+
+
+    /* =========================================
+       ERROR MESSAGE
+    ========================================= */
+
+    .error-message {
+        display: none;
+
+        margin-top: 12px;
+
+        padding: 11px 13px;
+
+        border-radius: 10px;
+
+        background: #fff5f5;
+
+        border: 1px solid #ffd9d9;
+
+        color: #c24141;
+
+        font-size: 13px;
+        font-weight: 600;
+    }
+
+    .error-message.show {
+        display: block;
+    }
+
+
+    /* =========================================
+       ANIMATION
+    ========================================= */
+
+    @keyframes resultAppear {
+
+        from {
+            opacity: 0;
+            transform: translateY(6px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    }
+
+
+    /* =========================================
+       CALCULATOR RESPONSIVE
+    ========================================= */
+
+    @media (max-width: 850px) {
+
+        .calculator-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .calculator-card.full-width {
+            grid-column: auto;
+        }
+
+        .increase-decrease-grid {
+            grid-template-columns: 1fr;
+        }
+
+    }
+
+
+    @media (max-width: 520px) {
+
+        .calculator-card {
+            padding: 22px 18px;
+
+            border-radius: 18px;
+        }
+
+        .calculator-card-header h3 {
+            font-size: 17px;
+        }
+
+        .calculator-icon {
+            width: 43px;
+            height: 43px;
+
+            flex-basis: 43px;
+        }
+
+        .result-value {
+            font-size: 25px;
+        }
+
+    }
+
+</style>
+
+
+<div class="calculator-grid">
+
+
+    <!-- =========================================
+         CALCULATOR 1
+    ========================================= -->
+
+    <section class="calculator-card">
+
+        <div class="calculator-card-header">
+
+            <div class="calculator-icon">
+                %
+            </div>
+
+            <div>
+
+                <h3>
+                    What is X% of Y?
+                </h3>
+
+                <p>
+                    Find a percentage of a number.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="percent1">
+                Percentage
+            </label>
+
+            <div class="input-wrapper">
+
+                <input
+                    type="number"
+                    id="percent1"
+                    placeholder="Example: 25"
+                    step="any"
+                >
+
+                <span class="input-suffix">%</span>
+
+            </div>
+
+        </div>
+
+
+        <div class="operator-symbol">
+            ×
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="number1">
+                Number
+            </label>
+
+            <div class="input-wrapper">
+
+                <input
+                    type="number"
+                    id="number1"
+                    placeholder="Example: 200"
+                    step="any"
+                >
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="calculate-button"
+            onclick="calculatePercentageOf()"
+        >
+            Calculate Percentage
+        </button>
+
+
+        <div
+            class="error-message"
+            id="error1"
+        ></div>
+
+
+        <div
+            class="result-box"
+            id="result1"
+        >
+
+            <div class="result-label">
+                Result
+            </div>
+
+            <div
+                class="result-value"
+                id="resultValue1"
+            >
+            </div>
+
+            <div
+                class="result-explanation"
+                id="resultExplanation1"
+            >
+            </div>
+
+        </div>
+
+
+        <div class="formula-preview">
+
+            <strong>Formula:</strong>
+
+            (Percentage ÷ 100) × Number
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CALCULATOR 2
+    ========================================= -->
+
+    <section class="calculator-card">
+
+        <div class="calculator-card-header">
+
+            <div class="calculator-icon">
+                %
+            </div>
+
+            <div>
+
+                <h3>
+                    What percentage is X of Y?
+                </h3>
+
+                <p>
+                    Find what percentage one number is of another.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="number2">
+                Part / X
+            </label>
+
+            <div class="input-wrapper">
+
+                <input
+                    type="number"
+                    id="number2"
+                    placeholder="Example: 25"
+                    step="any"
+                >
+
+            </div>
+
+        </div>
+
+
+        <div class="operator-symbol">
+            ÷
+        </div>
+
+
+        <div class="input-group">
+
+            <label for="total2">
+                Whole / Y
+            </label>
+
+            <div class="input-wrapper">
+
+                <input
+                    type="number"
+                    id="total2"
+                    placeholder="Example: 100"
+                    step="any"
+                >
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="calculate-button"
+            onclick="calculateWhatPercentage()"
+        >
+            Find Percentage
+        </button>
+
+
+        <div
+            class="error-message"
+            id="error2"
+        ></div>
+
+
+        <div
+            class="result-box"
+            id="result2"
+        >
+
+            <div class="result-label">
+                Result
+            </div>
+
+            <div
+                class="result-value"
+                id="resultValue2"
+            >
+            </div>
+
+            <div
+                class="result-explanation"
+                id="resultExplanation2"
+            >
+            </div>
+
+        </div>
+
+
+        <div class="formula-preview">
+
+            <strong>Formula:</strong>
+
+            (Part ÷ Whole) × 100
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================================
+         CALCULATOR 3
+    ========================================= -->
+
+    <section class="calculator-card full-width">
+
+        <div class="calculator-card-header">
+
+            <div class="calculator-icon">
+                ↕
+            </div>
+
+            <div>
+
+                <h3>
+                    Percentage Increase or Decrease
+                </h3>
+
+                <p>
+                    Calculate the percentage change between an original
+                    value and a new value.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="increase-decrease-grid">
+
+
+            <div class="input-group">
+
+                <label for="originalValue">
+                    Original Value
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="originalValue"
+                        placeholder="Example: 100"
+                        step="any"
+                    >
+
+                </div>
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label for="newValue">
+                    New Value
+                </label>
+
+                <div class="input-wrapper">
+
+                    <input
+                        type="number"
+                        id="newValue"
+                        placeholder="Example: 125"
+                        step="any"
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <button
+            class="calculate-button"
+            onclick="calculatePercentageChange()"
+        >
+            Calculate Percentage Change
+        </button>
+
+
+        <div
+            class="error-message"
+            id="error3"
+        ></div>
+
+
+        <div
+            class="result-box"
+            id="result3"
+        >
+
+            <div class="result-label">
+                Percentage Change
+            </div>
+
+            <div
+                class="result-value"
+                id="resultValue3"
+            >
+            </div>
+
+            <div
+                class="result-explanation"
+                id="resultExplanation3"
+            >
+            </div>
+
+        </div>
+
+
+        <div class="formula-preview">
+
+            <strong>Formula:</strong>
+
+            ((New Value − Original Value) ÷ Original Value) × 100
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- =========================================
+     CALCULATOR JAVASCRIPT
+========================================= -->
+
+<script>
+
+    function formatNumber(number) {
+
+        if (!Number.isFinite(number)) {
+            return "0";
+        }
+
+        return Number(
+            number.toFixed(10)
+        ).toLocaleString(
+            "en-US",
+            {
+                maximumFractionDigits: 10
+            }
+        );
+
+    }
+
+
+    function showError(id, message) {
+
+        const error = document.getElementById(id);
+
+        error.textContent = message;
+
+        error.classList.add("show");
+
+    }
+
+
+    function hideError(id) {
+
+        const error = document.getElementById(id);
+
+        error.textContent = "";
+
+        error.classList.remove("show");
+
+    }
+
+
+    function showResult(
+        boxId,
+        valueId,
+        explanationId,
+        value,
+        explanation
+    ) {
+
+        const box =
+            document.getElementById(boxId);
+
+        document.getElementById(valueId)
+            .textContent = value;
+
+        document.getElementById(explanationId)
+            .textContent = explanation;
+
+        box.classList.add("show");
+
+    }
+
+
+    /* =========================================
+       CALCULATOR 1
+    ========================================= */
+
+    function calculatePercentageOf() {
+
+        hideError("error1");
+
+        const percentage =
+            parseFloat(
+                document.getElementById("percent1").value
+            );
+
+        const number =
+            parseFloat(
+                document.getElementById("number1").value
+            );
+
+
+        if (
+            Number.isNaN(percentage) ||
+            Number.isNaN(number)
+        ) {
+
+            showError(
+                "error1",
+                "Please enter both numbers to calculate the result."
+            );
+
+            return;
+
+        }
+
+
+        const result =
+            (percentage / 100) * number;
+
+
+        showResult(
+            "result1",
+            "resultValue1",
+            "resultExplanation1",
+
+            formatNumber(result),
+
+            `${percentage}% of ${formatNumber(number)} equals ${formatNumber(result)}.`
+        );
+
+    }
+
+
+    /* =========================================
+       CALCULATOR 2
+    ========================================= */
+
+    function calculateWhatPercentage() {
+
+        hideError("error2");
+
+        const part =
+            parseFloat(
+                document.getElementById("number2").value
+            );
+
+        const whole =
+            parseFloat(
+                document.getElementById("total2").value
+            );
+
+
+        if (
+            Number.isNaN(part) ||
+            Number.isNaN(whole)
+        ) {
+
+            showError(
+                "error2",
+                "Please enter both numbers to calculate the percentage."
+            );
+
+            return;
+
+        }
+
+
+        if (whole === 0) {
+
+            showError(
+                "error2",
+                "The whole value cannot be zero."
+            );
+
+            return;
+
+        }
+
+
+        const result =
+            (part / whole) * 100;
+
+
+        showResult(
+            "result2",
+            "resultValue2",
+            "resultExplanation2",
+
+            `${formatNumber(result)}%`,
+
+            `${formatNumber(part)} is ${formatNumber(result)}% of ${formatNumber(whole)}.`
+        );
+
+    }
+
+
+    /* =========================================
+       CALCULATOR 3
+    ========================================= */
+
+    function calculatePercentageChange() {
+
+        hideError("error3");
+
+        const original =
+            parseFloat(
+                document.getElementById("originalValue").value
+            );
+
+        const newValue =
+            parseFloat(
+                document.getElementById("newValue").value
+            );
+
+
+        if (
+            Number.isNaN(original) ||
+            Number.isNaN(newValue)
+        ) {
+
+            showError(
+                "error3",
+                "Please enter both the original and new values."
+            );
+
+            return;
+
+        }
+
+
+        if (original === 0) {
+
+            showError(
+                "error3",
+                "The original value cannot be zero."
+            );
+
+            return;
+
+        }
+
+
+        const change =
+            ((newValue - original) / original) * 100;
+
+
+        const absoluteChange =
+            Math.abs(change);
+
+
+        let explanation;
+
+
+        if (change > 0) {
+
+            explanation =
+                `The value increased by ${formatNumber(absoluteChange)}%.`;
+
+        }
+
+        else if (change < 0) {
+
+            explanation =
+                `The value decreased by ${formatNumber(absoluteChange)}%.`;
+
+        }
+
+        else {
+
+            explanation =
+                "There is no percentage change.";
+
+        }
+
+
+        showResult(
+            "result3",
+            "resultValue3",
+            "resultExplanation3",
+
+            `${formatNumber(change)}%`,
+
+            explanation
+        );
+
+    }
+
+</script>
 
 
         </div>
