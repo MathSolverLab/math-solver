@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fraction Calculator - Simplify & Calculate Fractions | MathSolverLab</title>
+
+  <meta name="description" content="Use our free fraction calculator to simplify, add, subtract, multiply, and divide fractions online. Get fast and accurate fraction results.">
+  <meta name="keywords" content="fraction calculator, fraction simplifier, simplify fractions, add fractions, subtract fractions, multiply fractions, divide fractions">
+
+  <meta name="robots" content="index, follow">
+
+  <link rel="canonical" href="https://mathsolverlab.github.io/math-solver/calculators/fraction-calculator.html">
+
+  <meta property="og:title" content="Fraction Calculator - Simplify & Calculate Fractions">
+  <meta property="og:description" content="Free online fraction calculator for simplifying and performing fraction calculations.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://mathsolverlab.github.io/math-solver/calculators/fraction-calculator.html">
+
+  <link rel="stylesheet" href="../assets/css/style.css">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Fraction Calculator",
+    "url": "https://mathsolverlab.github.io/math-solver/calculators/fraction-calculator.html",
+    "applicationCategory": "EducationalApplication",
+    "operatingSystem": "All",
+    "description": "Free online fraction calculator for simplifying, adding, subtracting, multiplying, and dividing fractions.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  </script>
+</head>
+
+<body>
+
+<header class="msl-header">
+  <div class="msl-container msl-header-inner">
+
+    <a href="../index.html" class="msl-brand">
+      <span class="msl-brand-icon">∑</span>
+      <span>MathSolverLab</span>
+    </a>
+
+    <nav class="msl-nav">
+      <a href="../index.html">Home</a>
+      <a href="#calculator">Calculator</a>
+      <a href="#how-to-use">How to Use</a>
+    </nav>
+
+  </div>
+</header>
+
+
+<main>
+
+  <div class="msl-container">
+
+    <div class="msl-breadcrumbs">
+      <a href="../index.html">Home</a>
+      <span>›</span>
+      <span>Calculators</span>
+      <span>›</span>
+      <span>Fraction Calculator</span>
+    </div>
+
+
+    <section class="msl-hero">
+
+      <div class="msl-eyebrow">
+        Free Online Math Tool
+      </div>
+
+      <h1>Fraction Calculator</h1>
+
+      <p>
+        Calculate and simplify fractions quickly and accurately.
+        Add, subtract, multiply, and divide fractions with our free
+        online fraction calculator.
+      </p>
+
+      <div class="msl-feature-pills">
+
+        <span class="msl-feature-pill">
+          ✓ Free to Use
+        </span>
+
+        <span class="msl-feature-pill">
+          ✓ Instant Results
+        </span>
+
+        <span class="msl-feature-pill">
+          ✓ Mobile Friendly
+        </span>
+
+        <span class="msl-feature-pill">
+          ✓ No Data Upload
+        </span>
+
+      </div>
+
+    </section>
+
+
+    <section id="calculator" class="msl-section">
+
+      <div class="msl-page-intro">
+
+        <h2>Calculate Fractions Online</h2>
+
+        <p>
+          Enter the numerator and denominator for each fraction,
+          choose an operation, and get an accurate result instantly.
+        </p>
+
+      </div>
+
+
+      <div class="msl-calculator-grid">
+
+
+        <!-- Fraction Simplifier -->
+
+        <div class="msl-card">
+
+          <div class="msl-card-icon">½</div>
+
+          <h3>Simplify a Fraction</h3>
+
+          <p>
+            Reduce a fraction to its simplest form.
+          </p>
+
+
+          <div class="msl-form-row">
+
+            <div class="msl-form-group">
+              <label for="simplifyNumerator">
+                Numerator
+              </label>
+
+              <input
+                type="number"
+                id="simplifyNumerator"
+                placeholder="Example: 24"
+              >
+            </div>
+
+
+            <div class="msl-form-group">
+              <label for="simplifyDenominator">
+                Denominator
+              </label>
+
+              <input
+                type="number"
+                id="simplifyDenominator"
+                placeholder="Example: 36"
+              >
+            </div>
+
+          </div>
+
+
+          <button
+            class="msl-btn"
+            type="button"
+            onclick="simplifyFraction()"
+          >
+            Simplify
+          </button>
+
+
+          <div id="simplifyResult" class="msl-result">
+            <span class="msl-result-label">Result</span>
+            <strong>—</strong>
+          </div>
+
+        </div>
+
+
+        <!-- Fraction Operations -->
+
+        <div class="msl-card">
+
+          <div class="msl-card-icon">+</div>
+
+          <h3>Fraction Operations</h3>
+
+          <p>
+            Add, subtract, multiply, or divide two fractions.
+          </p>
+
+
+          <div class="msl-form-row">
+
+            <div class="msl-form-group">
+
+              <label for="numerator1">
+                First Numerator
+              </label>
+
+              <input
+                type="number"
+                id="numerator1"
+                placeholder="Example: 1"
+              >
+
+            </div>
+
+
+            <div class="msl-form-group">
+
+              <label for="denominator1">
+                First Denominator
+              </label>
+
+              <input
+                type="number"
+                id="denominator1"
+                placeholder="Example: 2"
+              >
+
+            </div>
+
+          </div>
+
+
+          <div class="msl-form-group">
+
+            <label for="fractionOperation">
+              Operation
+            </label>
+
+            <select id="fractionOperation">
+
+              <option value="add">
+                Add (+)
+              </option>
+
+              <option value="subtract">
+                Subtract (−)
+              </option>
+
+              <option value="multiply">
+                Multiply (×)
+              </option>
+
+              <option value="divide">
+                Divide (÷)
+              </option>
+
+            </select>
+
+          </div>
+
+
+          <div class="msl-form-row">
+
+            <div class="msl-form-group">
+
+              <label for="numerator2">
+                Second Numerator
+              </label>
+
+              <input
+                type="number"
+                id="numerator2"
+                placeholder="Example: 1"
+              >
+
+            </div>
+
+
+            <div class="msl-form-group">
+
+              <label for="denominator2">
+                Second Denominator
+              </label>
+
+              <input
+                type="number"
+                id="denominator2"
+                placeholder="Example: 4"
+              >
+
+            </div>
+
+          </div>
+
+
+          <button
+            class="msl-btn"
+            type="button"
+            onclick="calculateFractions()"
+          >
+            Calculate
+          </button>
+
+
+          <div id="fractionResult" class="msl-result">
+
+            <span class="msl-result-label">
+              Result
+            </span>
+
+            <strong>—</strong>
+
+          </div>
+
+        </div>
+
+
+        <!-- Fraction to Decimal -->
+
+        <div class="msl-card">
+
+          <div class="msl-card-icon">÷</div>
+
+          <h3>Fraction to Decimal</h3>
+
+          <p>
+            Convert a fraction into its decimal value.
+          </p>
+
+
+          <div class="msl-form-row">
+
+            <div class="msl-form-group">
+
+              <label for="decimalNumerator">
+                Numerator
+              </label>
+
+              <input
+                type="number"
+                id="decimalNumerator"
+                placeholder="Example: 3"
+              >
+
+            </div>
+
+
+            <div class="msl-form-group">
+
+              <label for="decimalDenominator">
+                Denominator
+              </label>
+
+              <input
+                type="number"
+                id="decimalDenominator"
+                placeholder="Example: 4"
+              >
+
+            </div>
+
+          </div>
+
+
+          <button
+            class="msl-btn"
+            type="button"
+            onclick="fractionToDecimal()"
+          >
+            Convert
+          </button>
+
+
+          <div id="decimalResult" class="msl-result">
+
+            <span class="msl-result-label">
+              Result
+            </span>
+
+            <strong>—</strong>
+
+          </div>
+
+        </div>
+
+
+      </div>
+
+
+      <div class="msl-notice">
+
+        <span class="msl-notice-icon">🔒</span>
+
+        <p>
+          <strong>Your data stays on your device.</strong>
+          This fraction calculator performs calculations directly
+          in your browser. Your numbers are not uploaded to a server.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <section id="how-to-use" class="msl-section">
+
+      <div class="msl-section-heading">
+
+        <h2>How to Use the Fraction Calculator</h2>
+
+        <p>
+          Use our fraction calculator to perform common fraction
+          calculations without doing the mathematics manually.
+        </p>
+
+      </div>
+
+
+      <div class="msl-steps">
+
+        <div class="msl-step">
+
+          <span class="msl-step-number">1</span>
+
+          <div>
+            <h3>Choose a Calculation</h3>
+
+            <p>
+              Select whether you want to simplify a fraction,
+              perform a fraction operation, or convert a fraction
+              to a decimal.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="msl-step">
+
+          <span class="msl-step-number">2</span>
+
+          <div>
+            <h3>Enter Your Fractions</h3>
+
+            <p>
+              Enter the numerator and denominator values into
+              the corresponding fields.
+            </p>
+          </div>
+
+        </div>
+
+
+        <div class="msl-step">
+
+          <span class="msl-step-number">3</span>
+
+          <div>
+            <h3>Get Your Result</h3>
+
+            <p>
+              Click the calculation button to instantly see
+              the simplified fraction or calculated result.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+
+  </section>
+      <section class="msl-section">
+
+      <div class="msl-section-heading">
+
+        <h2>Fraction Formulas</h2>
+
+        <p>
+          Understanding the basic fraction rules makes it easier
+          to work with fractions and check your results.
+        </p>
+
+      </div>
+
+
+      <div class="msl-content-grid">
+
+        <div class="msl-content-card">
+
+          <h3>Adding Fractions</h3>
+
+          <p>
+            To add fractions with different denominators,
+            find a common denominator before adding the numerators.
+          </p>
+
+          <div class="msl-formula">
+            a/b + c/d = (ad + bc) / bd
+          </div>
+
+        </div>
+
+
+        <div class="msl-content-card">
+
+          <h3>Subtracting Fractions</h3>
+
+          <p>
+            To subtract fractions, use a common denominator
+            and subtract the corresponding numerators.
+          </p>
+
+          <div class="msl-formula">
+            a/b − c/d = (ad − bc) / bd
+          </div>
+
+        </div>
+
+
+        <div class="msl-content-card">
+
+          <h3>Multiplying Fractions</h3>
+
+          <p>
+            Multiply the numerators together and multiply
+            the denominators together.
+          </p>
+
+          <div class="msl-formula">
+            a/b × c/d = ac/bd
+          </div>
+
+        </div>
+
+
+        <div class="msl-content-card">
+
+          <h3>Dividing Fractions</h3>
+
+          <p>
+            To divide fractions, multiply the first fraction
+            by the reciprocal of the second fraction.
+          </p>
+
+          <div class="msl-formula">
+            a/b ÷ c/d = a/b × d/c
+          </div>
+
+        </div>
+
+
+        <div class="msl-content-card">
+
+          <h3>Simplifying Fractions</h3>
+
+          <p>
+            Divide both the numerator and denominator by their
+            greatest common divisor to obtain the simplest form.
+          </p>
+
+          <div class="msl-formula">
+            Simplified Fraction = Numerator ÷ GCD / Denominator ÷ GCD
+          </div>
+
+        </div>
+
+
+        <div class="msl-content-card">
+
+          <h3>Fraction to Decimal</h3>
+
+          <p>
+            A fraction can be converted to a decimal by dividing
+            the numerator by the denominator.
+          </p>
+
+          <div class="msl-formula">
+            Decimal = Numerator ÷ Denominator
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="msl-section">
+
+      <div class="msl-section-heading">
+
+        <h2>Fraction Calculator Examples</h2>
+
+        <p>
+          Here are some simple examples showing how common
+          fraction calculations work.
+        </p>
+
+      </div>
+
+
+      <div class="msl-examples">
+
+        <div class="msl-example">
+
+          <h3>Example 1: Simplify 24/36</h3>
+
+          <p>
+            The greatest common divisor of 24 and 36 is 12.
+          </p>
+
+          <div class="msl-formula">
+            24 ÷ 12 / 36 ÷ 12 = 2/3
+          </div>
+
+        </div>
+
+
+        <div class="msl-example">
+
+          <h3>Example 2: Add 1/2 + 1/4</h3>
+
+          <p>
+            Convert both fractions to a common denominator.
+          </p>
+
+          <div class="msl-formula">
+            1/2 + 1/4 = 2/4 + 1/4 = 3/4
+          </div>
+
+        </div>
+
+
+        <div class="msl-example">
+
+          <h3>Example 3: Multiply 2/3 × 3/5</h3>
+
+          <p>
+            Multiply the numerators and denominators.
+          </p>
+
+          <div class="msl-formula">
+            2/3 × 3/5 = 6/15 = 2/5
+          </div>
+
+        </div>
+
+
+        <div class="msl-example">
+
+          <h3>Example 4: Convert 3/4 to a Decimal</h3>
+
+          <p>
+            Divide the numerator by the denominator.
+          </p>
+
+          <div class="msl-formula">
+            3 ÷ 4 = 0.75
+          </div>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <section class="msl-section">
+
+      <div class="msl-section-heading">
+
+        <h2>Frequently Asked Questions</h2>
+
+      </div>
+
+
+      <div class="msl-faq">
+
+
+        <details class="msl-faq-item">
+
+          <summary>
+            What is a fraction?
+          </summary>
+
+          <p>
+            A fraction represents a part of a whole and is written
+            using a numerator above a denominator.
+          </p>
+
+        </details>
+
+
+        <details class="msl-faq-item">
+
+          <summary>
+            How do I simplify a fraction?
+          </summary>
+
+          <p>
+            Divide both the numerator and denominator by their
+            greatest common divisor until no further common factor
+            remains.
+          </p>
+
+        </details>
+
+
+        <details class="msl-faq-item">
+
+          <summary>
+            How do I add two fractions?
+          </summary>
+
+          <p>
+            If the denominators are different, find a common
+            denominator first, then add the numerators.
+          </p>
+
+        </details>
+
+
+        <details class="msl-faq-item">
+
+          <summary>
+            Can I divide fractions with this calculator?
+          </summary>
+
+          <p>
+            Yes. Select the Divide operation and enter the two
+            fractions to calculate the result.
+          </p>
+
+        </details>
+
+
+        <details class="msl-faq-item">
+
+          <summary>
+            Is this fraction calculator free?
+          </summary>
+
+          <p>
+            Yes. The MathSolverLab fraction calculator is free
+            to use online.
+          </p>
+
+        </details>
+
+
+        <details class="msl-faq-item">
+
+          <summary>
+            Is my data uploaded to a server?
+          </summary>
+
+          <p>
+            No. The calculations are performed directly in your
+            browser, so the numbers you enter are not sent to a server.
+          </p>
+
+        </details>
+
+
+      </div>
+
+    </section>
+
+
+    <section class="msl-section">
+
+      <div class="msl-section-heading">
+
+        <h2>Related Math Tools</h2>
+
+        <p>
+          Explore other calculators and math tools from MathSolverLab.
+        </p>
+
+      </div>
+
+
+      <div class="msl-related-grid">
+
+
+        <a
+          href="percentage-calculator.html"
+          class="msl-related-card"
+        >
+
+          <span class="msl-related-icon">%</span>
+
+          <div>
+
+            <h3>Percentage Calculator</h3>
+
+            <p>
+              Calculate percentages and percentage changes.
+            </p>
+
+          </div>
+
+        </a>
+
+
+        <a
+          href="ratio-calculator.html"
+          class="msl-related-card"
+        >
+
+          <span class="msl-related-icon">:</span>
+
+          <div>
+
+            <h3>Ratio Calculator</h3>
+
+            <p>
+              Solve ratios and compare quantities.
+            </p>
+
+          </div>
+
+        </a>
+
+
+        <a
+          href="proportion-calculator.html"
+          class="msl-related-card"
+        >
+
+          <span class="msl-related-icon">=</span>
+
+          <div>
+
+            <h3>Proportion Calculator</h3>
+
+            <p>
+              Solve proportions quickly and accurately.
+            </p>
+
+          </div>
+
+        </a>
+
+
+        <a
+          href="average-calculator.html"
+          class="msl-related-card"
+        >
+
+          <span class="msl-related-icon">x̄</span>
+
+          <div>
+
+            <h3>Average Calculator</h3>
+
+            <p>
+              Calculate the average or mean of numbers.
+            </p>
+
+          </div>
+
+        </a>
+
+
+      </div>
+
+    </section>
+
+  </div>
+
+</main>
+
+
+<footer class="msl-footer">
+
+  <div class="msl-container">
+
+    <div class="msl-footer-grid">
+
+      <div>
+
+        <a href="../index.html" class="msl-brand">
+
+          <span class="msl-brand-icon">∑</span>
+
+          <span>MathSolverLab</span>
+
+        </a>
+
+        <p>
+          Free online mathematics tools and calculators for students,
+          professionals, and anyone who needs fast and accurate
+          mathematical calculations.
+        </p>
+
+      </div>
+
+
+      <div>
+
+        <h3>Math Tools</h3>
+
+        <a href="percentage-calculator.html">
+          Percentage Calculator
+        </a>
+
+        <a href="fraction-calculator.html">
+          Fraction Calculator
+        </a>
+
+        <a href="ratio-calculator.html">
+          Ratio Calculator
+        </a>
+
+        <a href="average-calculator.html">
+          Average Calculator
+        </a>
+
+      </div>
+
+
+      <div>
+
+        <h3>Categories</h3>
+
+        <a href="../index.html">
+          Algebra
+        </a>
+
+        <a href="../index.html">
+          Calculus
+        </a>
+
+        <a href="../index.html">
+          Geometry
+        </a>
+
+        <a href="../index.html">
+          Statistics
+        </a>
+
+      </div>
+
+    </div>
+
+
+    <div class="msl-footer-bottom">
+
+      <a href="../index.html">MathSolverLab</a>
+
+      <a href="../index.html">Home</a>
+
+      <a href="../index.html">All Calculators</a>
+
+      <span>© 2026 MathSolverLab. All rights reserved.</span>
+
+    </div>
+
+  </div>
+
+</footer>
+
+
+<script>
+
+  function gcd(a, b) {
+
+    a = Math.abs(a);
+    b = Math.abs(b);
+
+    while (b !== 0) {
+
+      const temp = b;
+      b = a % b;
+      a = temp;
+
+    }
+
+    return a;
+
+  }
+
+
+  function simplifyValues(numerator, denominator) {
+
+    if (denominator === 0) {
+      return null;
+    }
+
+    if (numerator === 0) {
+      return {
+        numerator: 0,
+        denominator: 1
+      };
+    }
+
+    const divisor = gcd(numerator, denominator);
+
+    numerator = numerator / divisor;
+    denominator = denominator / divisor;
+
+    if (denominator < 0) {
+      numerator = -numerator;
+      denominator = -denominator;
+    }
+
+    return {
+      numerator: numerator,
+      denominator: denominator
+    };
+
+  }
+
+
+  function fractionText(fraction) {
+
+    if (fraction.denominator === 1) {
+      return String(fraction.numerator);
+    }
+
+    return `${fraction.numerator}/${fraction.denominator}`;
+
+  }
+
+
+  function showResult(elementId, content, isError = false) {
+
+    const box = document.getElementById(elementId);
+
+    box.classList.toggle("msl-result-error", isError);
+
+    box.innerHTML = `
+      <span class="msl-result-label">
+        Result
+      </span>
+
+      <strong>${content}</strong>
+    `;
+
+  }
+
+
+  function simplifyFraction() {
+
+    const numerator = Number(
+      document.getElementById("simplifyNumerator").value
+    );
+
+    const denominator = Number(
+      document.getElementById("simplifyDenominator").value
+    );
+
+
+    if (
+      document.getElementById("simplifyNumerator").value === "" ||
+      document.getElementById("simplifyDenominator").value === ""
+    ) {
+
+      showResult(
+        "simplifyResult",
+        "Please enter both values.",
+        true
+      );
+
+      return;
+
+    }
+
+
+    if (denominator === 0) {
+
+      showResult(
+        "simplifyResult",
+        "Denominator cannot be zero.",
+        true
+      );
+
+      return;
+
+    }
+
+
+    const result = simplifyValues(
+      numerator,
+      denominator
+    );
+
+
+    showResult(
+      "simplifyResult",
+      fractionText(result)
+    );
+
+  }
+
+
+  function calculateFractions() {
+
+    const n1 = Number(
+      document.getElementById("numerator1").value
+    );
+
+    const d1 = Number(
+      document.getElementById("denominator1").value
+    );
+
+    const n2 = Number(
+      document.getElementById("numerator2").value
+    );
+
+    const d2 = Number(
+      document.getElementById("denominator2").value
+    );
+
+    const operation =
+      document.getElementById("fractionOperation").value;
+
+
+    const fields = [
+      "numerator1",
+      "denominator1",
+      "numerator2",
+      "denominator2"
+    ];
+
+
+    if (
+      fields.some(
+        id => document.getElementById(id).value === ""
+      )
+    ) {
+
+      showResult(
+        "fractionResult",
+        "Please enter all four values.",
+        true
+      );
+
+      return;
+
+    }
+
+
+    if (d1 === 0 || d2 === 0) {
+
+      showResult(
+        "fractionResult",
+        "Denominators cannot be zero.",
+        true
+      );
+
+      return;
+
+    }
+
+
+    let numerator;
+    let denominator;
+
+
+    if (operation === "add") {
+
+      numerator = (n1 * d2) + (n2 * d1);
+      denominator = d1 * d2;
+
+    }
+
+
+    if (operation === "subtract") {
+
+      numerator = (n1 * d2) - (n2 * d1);
+      denominator = d1 * d2;
+
+    }
+
+
+    if (operation === "multiply") {
+
+      numerator = n1 * n2;
+      denominator = d1 * d2;
+
+    }
+
+
+    if (operation === "divide") {
+
+      if (n2 === 0) {
+
+        showResult(
+          "fractionResult",
+          "Cannot divide by zero.",
+          true
+        );
+
+        return;
+
+      }
+
+      numerator = n1 * d2;
+      denominator = d1 * n2;
+
+    }
+
+
+    const result = simplifyValues(
+      numerator,
+      denominator
+    );
+
+
+    showResult(
+      "fractionResult",
+      fractionText(result)
+    );
+
+  }
+
+
+  function fractionToDecimal() {
+
+    const numerator = Number(
+      document.getElementById("decimalNumerator").value
+    );
+
+    const denominator = Number(
+      document.getElementById("decimalDenominator").value
+    );
+
+
+    if (
+      document.getElementById("decimalNumerator").value === "" ||
+      document.getElementById("decimalDenominator").value === ""
+    ) {
+
+      showResult(
+        "decimalResult",
+        "Please enter both values.",
+        true
+      );
+
+      return;
+
+    }
+
+
+    if (denominator === 0) {
+
+      showResult(
+        "decimalResult",
+        "Denominator cannot be zero.",
+        true
+      );
+
+      return;
+
+    }
+
+
+    const decimal = numerator / denominator;
+
+
+    showResult(
+      "decimalResult",
+      decimal.toLocaleString(undefined, {
+        maximumFractionDigits: 10
+      })
+    );
+
+  }
+
+</script>
+
+</body>
+</html>
